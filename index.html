@@ -1,0 +1,80 @@
+<!doctype html><html lang="es" data-theme="malva"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Mis cuentas</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#F6F2F9"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cuentas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme=malva]{--bg:#F6F2F9;--ink:#2B2336;--mut:#675C77;--ac:#7A5BA6;--line:#DDD2E8;--soft:#E7DFF0}
+[data-theme=salvia]{--bg:#F4F6F1;--ink:#24302A;--mut:#5E6B62;--ac:#4F7A63;--line:#D5DDD2;--soft:#DDE5DA}
+[data-theme=rosa]{--bg:#FAF2F3;--ink:#35242A;--mut:#765A62;--ac:#A8566A;--line:#EBD5D9;--soft:#F2E0E3}
+[data-theme=azul]{--bg:#F1F5F8;--ink:#1F2C38;--mut:#566675;--ac:#4F6F8F;--line:#D3DEE7;--soft:#DCE6EE}
+[data-theme=terracota]{--bg:#FAF3EF;--ink:#38251F;--mut:#7A5A50;--ac:#B5573F;--line:#EBD9D0;--soft:#F2E2DA}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 Inter,system-ui,sans-serif}
+button{font:inherit;color:inherit}
+#app{max-width:480px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 28px) 24px calc(170px + env(safe-area-inset-bottom))}
+.sf{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
+.lb{font-size:12px;letter-spacing:.12em;color:var(--mut);text-transform:uppercase}
+h1{font-size:38px;line-height:1.1;margin:0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border:0;border-top:1px solid var(--line);width:100%;background:none;text-align:left;cursor:pointer}
+.tx{background:none;border:0;color:var(--ac);font-weight:600;min-height:44px;padding:0 6px;cursor:pointer}
+.wk{display:flex}.wk button{flex:1;min-height:44px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--mut);cursor:pointer}.wk .on{border-bottom:2px solid var(--ac);color:var(--ac);font-weight:700}
+.bar{height:4px;border-radius:2px;background:var(--soft)}.bar i{display:block;height:4px;border-radius:2px;background:var(--ac)}
+.cta{position:fixed;left:50%;transform:translateX(-50%);width:calc(100% - 48px);max-width:432px;bottom:calc(96px + env(safe-area-inset-bottom));height:52px;border:0;border-radius:26px;background:var(--ac);color:#fff;font-weight:600;cursor:pointer}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--line);padding:8px 0 env(safe-area-inset-bottom)}
+nav button{flex:1;background:none;border:0;min-height:56px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--mut);cursor:pointer}nav .on{color:var(--ac);font-weight:700}
+.bd{position:fixed;inset:0;background:rgba(0,0,0,.35)}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:24px 24px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px}
+.sheet h3{margin:0;font-size:22px}
+label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mut)}
+input{height:48px;border:1px solid var(--line);border-radius:12px;padding:0 12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+.bt{display:flex;gap:8px;flex-wrap:wrap}.bt button{min-height:48px;padding:0 18px;border-radius:24px;border:1px solid var(--line);background:#fff;cursor:pointer}.bt .pri{background:var(--ac);border:0;color:#fff;font-weight:600}.bt .del{color:#B3261E}
+.chip{min-height:44px;padding:0 14px;border-radius:22px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:13px;cursor:pointer}.chip.ok{background:var(--ac);color:#fff;border:0}
+small{color:var(--mut)}
+</style></head><body><div id="app"><main id="main"></main></div>
+<nav><button data-a="v" data-v="g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Gastos</button><button data-a="v" data-v="r"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>Gimnasio</button><button data-a="v" data-v="s"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 4v5h-5M20 12a8 8 0 0 1-14 5l-2-2M4 20v-5h5"/></svg>Suscripciones</button></nav>
+<div id="sh"></div>
+<script>
+const $=s=>document.querySelector(s),K='mis-cuentas-v1',TH=['malva','salvia','rosa','azul','terracota'],
+M=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=S||{theme:'malva',gastos:[],sem:{},rut:[],subs:[],pag:{}};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}},uid=()=>Math.random().toString(36).slice(2,9),
+esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
+money=n=>'$ '+Math.round(n||0).toLocaleString('es-UY'),weekOf=f=>Math.min(5,Math.ceil(+f.slice(8)/7)),
+fecha=f=>+f.slice(8)+' '+M[+f.slice(5,7)-1].slice(0,3).toLowerCase(),
+today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+let view='g',ym=today().slice(0,7),wk=weekOf(today()),open=null;
+document.documentElement.dataset.theme=S.theme;
+const hd=(lb,t)=>`<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px"><div><div class="lb">${lb}</div><h1 class="sf">${t}</h1></div><button class="tx" data-a="th">Color</button></div>`,
+mn=()=>{const[y,m]=ym.split('-');return `<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px"><button class="tx" data-a="pm" aria-label="Mes anterior">‹</button><b>${M[m-1]} ${y}</b><button class="tx" data-a="nm" aria-label="Mes siguiente">›</button></div>`};
+function gastos(){
+ const L=S.gastos.filter(g=>g.f.startsWith(ym)),W=L.filter(g=>weekOf(g.f)==wk).sort((a,b)=>b.f.localeCompare(a.f)),
+ sp=W.reduce((a,g)=>a+g.m,0),bu=S.sem[ym+'-'+wk]||0,left=bu-sp,tot=L.reduce((a,g)=>a+g.m,0);
+ return hd('Tarjeta de crédito',M[+ym.slice(5)-1])+mn()+
+ `<div class="wk">${[1,2,3,4,5].map(i=>`<button data-a="w" data-i="${i}" class="${i==wk?'on':''}">Sem ${i}</button>`).join('')}</div>`+
+ `<div style="padding:16px 0 8px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="lb">Para gastar esta semana</span><button class="tx" data-a="eb">Editar</button></div><div class="sf" style="font-size:56px;line-height:1">${money(bu)}</div><div class="bar" style="margin-top:16px"><i style="width:${bu?Math.min(100,sp/bu*100):0}%"></i></div><div style="display:flex;justify-content:space-between;margin-top:10px;font-size:13px"><small>Gastado ${money(sp)}</small><b style="color:${left<0?'#B3261E':'var(--ac)'}">${left<0?'Te pasaste '+money(-left):'Quedan '+money(left)}</b></div><div style="font-size:13px;margin-top:6px"><small>Total del mes: ${money(tot)}</small></div></div>`+
+ (W.map(g=>`<button class="row" data-a="eg" data-i="${g.id}"><span>${esc(g.d)}<br><small>${fecha(g.f)}</small></span><span class="sf" style="font-size:20px">${money(g.m)}</span></button>`).join('')||'<p><small>Sin gastos en esta semana.</small></p>')+
+ '<button class="cta" data-a="ag">+ Agregar gasto</button>'}
+function gym(){return hd('Mis rutinas','Gimnasio')+(S.rut.map(r=>{const o=open==r.id;return `<div style="border-top:1px solid var(--line)"><div style="display:flex;align-items:center"><button class="row" style="border:0;flex:1" data-a="tr" data-i="${r.id}"><span><b>${esc(r.n)}</b><br><small>${esc(r.d)} · ${r.e.length} ejercicios</small></span><span style="color:var(--mut)">${o?'⌃':'⌄'}</span></button>${o?`<button class="tx" data-a="er" data-i="${r.id}">Editar</button>`:''}</div>${o?r.e.map(e=>`<button class="row" data-a="ee" data-i="${r.id}" data-j="${e.id}"><span>${esc(e.n)}</span><b>${esc(e.s)}</b></button>`).join('')+`<button class="tx" data-a="ae" data-i="${r.id}">+ Agregar ejercicio</button>`:''}</div>`}).join('')||'<p><small>Todavía no tenés rutinas. Creá la primera.</small></p>')+'<button class="cta" data-a="ar">+ Nueva rutina</button>'}
+function subs(){const P=S.pag[ym]||[],fa=S.subs.filter(s=>!P.includes(s.id)).reduce((a,s)=>a+s.p,0);
+ return hd('Este mes','Suscripciones')+mn()+`<div style="display:flex;justify-content:space-between;align-items:flex-end;padding:8px 0 16px"><div><div class="lb">Pagadas</div><div class="sf" style="font-size:44px;line-height:1">${S.subs.filter(s=>P.includes(s.id)).length} de ${S.subs.length}</div></div><div style="text-align:right"><div class="lb">Falta pagar</div><b style="font-size:20px;color:var(--ac)">${money(fa)}</b></div></div>`+
+ (S.subs.map(s=>{const ok=P.includes(s.id);return `<div class="row" style="cursor:default"><button style="all:unset;flex:1;min-height:44px;cursor:pointer;font:inherit" data-a="es" data-i="${s.id}">${esc(s.n)}<br><small>Vence el ${s.d} · ${money(s.p)}</small></button><button class="chip${ok?' ok':''}" data-a="tp" data-i="${s.id}">${ok?'Pagada ✓':'Marcar pagada'}</button></div>`}).join('')||'<p><small>Todavía no cargaste suscripciones.</small></p>')+'<button class="cta" data-a="as">+ Agregar suscripción</button>'}
+function render(){$('#main').innerHTML={g:gastos,r:gym,s:subs}[view]();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==view))}
+const cl=()=>$('#sh').innerHTML='';
+function sheet(title,F,ok,del){
+ $('#sh').innerHTML=`<div class="bd" data-a="cl"></div><form class="sheet"><h3 class="sf">${title}</h3>${F.map(f=>`<label>${f.l}<input name="${f.k}" type="${f.t||'text'}" value="${esc(f.v)}" ${f.t=='number'?'inputmode="decimal" step="any"':''} required></label>`).join('')}<div class="bt"><button class="pri">Guardar</button>${del?'<button type="button" class="del" data-a="del">Eliminar</button>':''}<button type="button" data-a="cl">Cancelar</button></div></form>`;
+ const fm=$('#sh form');fm.onsubmit=e=>{e.preventDefault();ok(Object.fromEntries(new FormData(fm)));cl();save();render()};
+ if(del)fm.querySelector('[data-a=del]').onclick=()=>{del();cl();save();render()};fm.querySelector('input').focus()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=b.dataset.i,j=b.dataset.j;
+ if(a=='cl')return cl();
+ if(a=='v'){view=b.dataset.v;return render()}
+ if(a=='pm'||a=='nm'){let[y,m]=ym.split('-').map(Number);m+=a=='nm'?1:-1;if(m<1){m=12;y--}if(m>12){m=1;y++}ym=y+'-'+String(m).padStart(2,'0');return render()}
+ if(a=='w'){wk=+i;return render()}
+ if(a=='th'){S.theme=TH[(TH.indexOf(S.theme)+1)%TH.length];document.documentElement.dataset.theme=S.theme;return save()}
+ if(a=='tr'){open=open==i?null:i;return render()}
+ if(a=='tp'){const P=S.pag[ym]=S.pag[ym]||[],k=P.indexOf(i);k<0?P.push(i):P.splice(k,1);save();return render()}
+ if(a=='eb')return sheet('Monto de la semana '+wk,[{l:'Monto disponible',k:'m',t:'number',v:S.sem[ym+'-'+wk]}],o=>S.sem[ym+'-'+wk]=+o.m);
+ if(a=='ag'||a=='eg'){const g=a=='eg'?S.gastos.find(x=>x.id==i):null;return sheet(g?'Editar gasto':'Nuevo gasto',[{l:'Fecha',k:'f',t:'date',v:g?g.f:today()},{l:'Detalle',k:'d',v:g?.d},{l:'Monto',k:'m',t:'number',v:g?.m}],o=>{const n={id:g?g.id:uid(),f:o.f,d:o.d,m:+o.m};g?Object.assign(g,n):S.gastos.push(n);ym=o.f.slice(0,7);wk=weekOf(o.f)},g&&(()=>S.gastos=S.gastos.filter(x=>x!=g)))}
+ if(a=='ar'||a=='er'){const r=a=='er'?S.rut.find(x=>x.id==i):null;return sheet(r?'Editar rutina':'Nueva rutina',[{l:'Nombre',k:'n',v:r?.n},{l:'Día',k:'d',v:r?.d}],o=>{if(r)Object.assign(r,o);else{const n={id:uid(),n:o.n,d:o.d,e:[]};S.rut.push(n);open=n.id}},r&&(()=>S.rut=S.rut.filter(x=>x!=r)))}
+ if(a=='ae'||a=='ee'){const r=S.rut.find(x=>x.id==i),e=a=='ee'?r.e.find(x=>x.id==j):null;return sheet(e?'Editar ejercicio':'Nuevo ejercicio',[{l:'Ejercicio',k:'n',v:e?.n},{l:'Series × repeticiones',k:'s',v:e?.s}],o=>e?Object.assign(e,o):r.e.push({id:uid(),...o}),e&&(()=>r.e=r.e.filter(x=>x!=e)))}
+ if(a=='as'||a=='es'){const s=a=='es'?S.subs.find(x=>x.id==i):null;return sheet(s?'Editar suscripción':'Nueva suscripción',[{l:'Nombre',k:'n',v:s?.n},{l:'Día de vencimiento',k:'d',t:'number',v:s?.d},{l:'Precio mensual',k:'p',t:'number',v:s?.p}],o=>{const n={id:s?s.id:uid(),n:o.n,d:+o.d,p:+o.p};s?Object.assign(s,n):S.subs.push(n)},s&&(()=>S.subs=S.subs.filter(x=>x!=s)))}
+});
+render();if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
+</script></body></html>
