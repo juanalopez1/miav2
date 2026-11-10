@@ -1,4 +1,4 @@
-<!doctype html><html lang="es" data-theme="malva"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Mis cuentas</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#F6F2F9"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Cuentas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!doctype html><html lang="es" data-theme="malva"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Mia</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#F6F2F9"><link rel="icon" href="favicon-32.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Mia"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root,[data-theme=malva]{--bg:#F6F2F9;--ink:#2B2336;--mut:#675C77;--ac:#7A5BA6;--line:#DDD2E8;--soft:#E7DFF0}
 [data-theme=salvia]{--bg:#F4F6F1;--ink:#24302A;--mut:#5E6B62;--ac:#4F7A63;--line:#D5DDD2;--soft:#DDE5DA}
@@ -7,74 +7,194 @@
 [data-theme=terracota]{--bg:#FAF3EF;--ink:#38251F;--mut:#7A5A50;--ac:#B5573F;--line:#EBD9D0;--soft:#F2E2DA}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 Inter,system-ui,sans-serif}
-button{font:inherit;color:inherit}
-#app{max-width:480px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 28px) 24px calc(170px + env(safe-area-inset-bottom))}
+button,input,textarea,select{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+#app{max-width:480px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 24px) 24px calc(120px + env(safe-area-inset-bottom))}
 .sf{font-family:'DM Serif Display',Georgia,serif;font-weight:400}
 .lb{font-size:12px;letter-spacing:.12em;color:var(--mut);text-transform:uppercase}
-h1{font-size:38px;line-height:1.1;margin:0}
-.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border:0;border-top:1px solid var(--line);width:100%;background:none;text-align:left;cursor:pointer}
-.tx{background:none;border:0;color:var(--ac);font-weight:600;min-height:44px;padding:0 6px;cursor:pointer}
-.wk{display:flex}.wk button{flex:1;min-height:44px;background:none;border:0;border-bottom:1px solid var(--line);color:var(--mut);cursor:pointer}.wk .on{border-bottom:2px solid var(--ac);color:var(--ac);font-weight:700}
+h1{font-size:38px;line-height:1.1;margin:0;display:flex;align-items:center;gap:10px}
+small,.mut{color:var(--mut);font-size:13px}
+.ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:14px;gap:8px}
+.sec{border-top:1px solid var(--line);padding:16px 0}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.sh h2{margin:0;font-size:24px;line-height:1.1}
+.acts{display:flex;align-items:center}
+.big{font-size:46px;line-height:1.1;margin:4px 0}
+.sub{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin:14px 0 2px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border:0;border-top:1px solid var(--line);width:100%;background:none;text-align:left;cursor:pointer;min-height:48px}
+.row small{display:block}
+.tx{background:none;border:0;color:var(--ac);font-weight:600;min-height:44px;padding:0 8px;cursor:pointer;display:inline-flex;align-items:center}
+.plus{width:44px;height:44px;border-radius:22px;border:1px solid var(--line);background:#fff;color:var(--ac);font-size:24px;cursor:pointer;line-height:1}
+.plus:disabled{opacity:.4}
+.btn{min-height:44px;padding:0 20px;border-radius:22px;border:0;background:var(--ac);color:#fff;font-weight:600;cursor:pointer;display:inline-flex;align-items:center}
+.btn.o{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn:disabled{opacity:.5}
+.chip{min-height:32px;padding:0 12px;border-radius:16px;background:var(--soft);color:var(--ac);font-weight:700;font-size:13px;display:inline-flex;align-items:center}
+.chip.bad{background:#FBE4E2;color:#B3261E}
 .bar{height:4px;border-radius:2px;background:var(--soft)}.bar i{display:block;height:4px;border-radius:2px;background:var(--ac)}
-.cta{position:fixed;left:50%;transform:translateX(-50%);width:calc(100% - 48px);max-width:432px;bottom:calc(96px + env(safe-area-inset-bottom));height:52px;border:0;border-radius:26px;background:var(--ac);color:#fff;font-weight:600;cursor:pointer}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--line);padding:8px 0 env(safe-area-inset-bottom)}
-nav button{flex:1;background:none;border:0;min-height:56px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--mut);cursor:pointer}nav .on{color:var(--ac);font-weight:700}
-.bd{position:fixed;inset:0;background:rgba(0,0,0,.35)}
-.sheet{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:24px 24px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px}
-.sheet h3{margin:0;font-size:22px}
+.sel{height:44px;border-radius:22px;border:1px solid var(--line);background:#fff;padding:0 14px;max-width:200px;font-size:14px;font-weight:600}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips a{min-height:44px;padding:0 16px;border-radius:22px;background:var(--soft);color:var(--ac);font-weight:600;display:inline-flex;align-items:center}
+.row2{display:flex;align-items:center;gap:4px;border-top:1px solid var(--line);min-height:56px}
+.row2 .gr{flex:1;min-width:0;background:none;border:0;text-align:left;cursor:pointer;padding:8px 0;min-height:44px}.row2 .gr:disabled{opacity:.45}
+.row2 .gr b{display:block;font-weight:500}.row2 .gr small{display:block}
+.dot{width:44px;height:44px;background:none;border:0;display:grid;place-items:center;cursor:pointer}
+.st{width:12px;height:12px;border-radius:6px;background:#B8B2C0;display:block}.st.on{background:#3F8A5A}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--ac);margin:11px;flex:none}
+.ex{display:flex;align-items:stretch;border-top:1px solid var(--line);background:var(--bg)}
+.ex.drag{box-shadow:0 8px 24px rgba(0,0,0,.15);position:relative;z-index:2}
+.hdl{width:36px;border:0;background:none;color:var(--mut);cursor:grab;touch-action:none;font-size:18px;letter-spacing:-3px}
+.exb{flex:1;background:none;border:0;text-align:left;padding:14px 0;cursor:pointer;display:flex;gap:12px;min-width:0}
+.num{width:32px;height:32px;border-radius:16px;background:var(--soft);color:var(--ac);font-weight:700;display:grid;place-items:center;flex:none;font-size:14px}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--bg);border-top:1px solid var(--line);padding:8px 0 env(safe-area-inset-bottom);z-index:5}
+nav a{flex:1;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;color:var(--mut)}nav a.on{color:var(--ac);font-weight:700}
+.bd{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:auto;background:var(--bg);border-radius:24px 24px 0 0;padding:24px 24px calc(24px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:12px;z-index:10;max-height:92dvh;overflow:auto}
+.sheet h3{margin:0;font-size:24px}
 label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mut)}
-input{height:48px;border:1px solid var(--line);border-radius:12px;padding:0 12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
-.bt{display:flex;gap:8px;flex-wrap:wrap}.bt button{min-height:48px;padding:0 18px;border-radius:24px;border:1px solid var(--line);background:#fff;cursor:pointer}.bt .pri{background:var(--ac);border:0;color:#fff;font-weight:600}.bt .del{color:#B3261E}
-.chip{min-height:44px;padding:0 14px;border-radius:22px;border:1px solid var(--line);background:#fff;font-weight:700;font-size:13px;cursor:pointer}.chip.ok{background:var(--ac);color:#fff;border:0}
-small{color:var(--mut)}
+input:not([type=checkbox]),textarea{border:1px solid var(--line);border-radius:12px;padding:0 12px;font-size:16px;background:#fff;color:var(--ink);min-height:48px;width:100%}
+textarea{padding:10px 12px;resize:none}
+.bt{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.bt button{min-height:48px;padding:0 18px;border-radius:24px;border:1px solid var(--line);background:#fff;cursor:pointer}.bt .pri{background:var(--ac);border:0;color:#fff;font-weight:600}.bt .del{color:#B3261E}
+.er{color:#B3261E;font-size:14px;margin:0}
+.sw{display:flex;gap:12px;padding:8px 0}.sw button{width:44px;height:44px;border-radius:22px;border:3px solid transparent;cursor:pointer}.sw button.on{border-color:var(--ink)}
+.msg{background:var(--soft);border-radius:12px;padding:10px 12px;font-size:14px;margin:8px 0}
 </style></head><body><div id="app"><main id="main"></main></div>
-<nav><button data-a="v" data-v="g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg>Gastos</button><button data-a="v" data-v="r"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/></svg>Gimnasio</button><button data-a="v" data-v="s"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 4v5h-5M20 12a8 8 0 0 1-14 5l-2-2M4 20v-5h5"/></svg>Suscripciones</button></nav>
-<div id="sh"></div>
+<nav id="nav"></nav><div id="sh"></div>
 <script>
-const $=s=>document.querySelector(s),K='mis-cuentas-v1',TH=['malva','salvia','rosa','azul','terracota'],
-M=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const VERSION='2.0.0',K='mia-v2',TH=['malva','salvia','rosa','azul','terracota'],THC={malva:'#7A5BA6',salvia:'#4F7A63',rosa:'#A8566A',azul:'#4F6F8F',terracota:'#B5573F'},UYU_USD=41.5;
+const $=s=>document.querySelector(s);
 let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
-S=S||{theme:'malva',gastos:[],sem:{},rut:[],subs:[],pag:{}};
-const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}},uid=()=>Math.random().toString(36).slice(2,9),
+S=Object.assign({theme:'malva',cash:0,periods:[],sel:null,routines:[],subs:[],seq:1},S||{});
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}},nid=()=>S.seq++,
 esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
-money=n=>'$ '+Math.round(n||0).toLocaleString('es-UY'),weekOf=f=>Math.min(5,Math.ceil(+f.slice(8)/7)),
-fecha=f=>+f.slice(8)+' '+M[+f.slice(5,7)-1].slice(0,3).toLowerCase(),
-today=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
-let view='g',ym=today().slice(0,7),wk=weekOf(today()),open=null;
+money=n=>'$ '+Math.round(n||0).toLocaleString('es-UY'),pad=n=>String(n).padStart(2,'0'),
+iso=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),today=()=>iso(new Date()),pd=v=>new Date(v+'T00:00:00'),
+addD=(v,n)=>{const d=pd(v);d.setDate(d.getDate()+n);return iso(d)},addM=v=>{const d=pd(v);d.setMonth(d.getMonth()+1);return iso(d)},
+fd=v=>new Intl.DateTimeFormat('es-UY',{day:'2-digit',month:'short',year:'numeric'}).format(pd(v));
 document.documentElement.dataset.theme=S.theme;
-const hd=(lb,t)=>`<div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:12px"><div><div class="lb">${lb}</div><h1 class="sf">${t}</h1></div><button class="tx" data-a="th">Color</button></div>`,
-mn=()=>{const[y,m]=ym.split('-');return `<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px"><button class="tx" data-a="pm" aria-label="Mes anterior">‹</button><b>${M[m-1]} ${y}</b><button class="tx" data-a="nm" aria-label="Mes siguiente">›</button></div>`};
-function gastos(){
- const L=S.gastos.filter(g=>g.f.startsWith(ym)),W=L.filter(g=>weekOf(g.f)==wk).sort((a,b)=>b.f.localeCompare(a.f)),
- sp=W.reduce((a,g)=>a+g.m,0),bu=S.sem[ym+'-'+wk]||0,left=bu-sp,tot=L.reduce((a,g)=>a+g.m,0);
- return hd('Tarjeta de crédito',M[+ym.slice(5)-1])+mn()+
- `<div class="wk">${[1,2,3,4,5].map(i=>`<button data-a="w" data-i="${i}" class="${i==wk?'on':''}">Sem ${i}</button>`).join('')}</div>`+
- `<div style="padding:16px 0 8px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="lb">Para gastar esta semana</span><button class="tx" data-a="eb">Editar</button></div><div class="sf" style="font-size:56px;line-height:1">${money(bu)}</div><div class="bar" style="margin-top:16px"><i style="width:${bu?Math.min(100,sp/bu*100):0}%"></i></div><div style="display:flex;justify-content:space-between;margin-top:10px;font-size:13px"><small>Gastado ${money(sp)}</small><b style="color:${left<0?'#B3261E':'var(--ac)'}">${left<0?'Te pasaste '+money(-left):'Quedan '+money(left)}</b></div><div style="font-size:13px;margin-top:6px"><small>Total del mes: ${money(tot)}</small></div></div>`+
- (W.map(g=>`<button class="row" data-a="eg" data-i="${g.id}"><span>${esc(g.d)}<br><small>${fecha(g.f)}</small></span><span class="sf" style="font-size:20px">${money(g.m)}</span></button>`).join('')||'<p><small>Sin gastos en esta semana.</small></p>')+
- '<button class="cta" data-a="ag">+ Agregar gasto</button>'}
-function gym(){return hd('Mis rutinas','Gimnasio')+(S.rut.map(r=>{const o=open==r.id;return `<div style="border-top:1px solid var(--line)"><div style="display:flex;align-items:center"><button class="row" style="border:0;flex:1" data-a="tr" data-i="${r.id}"><span><b>${esc(r.n)}</b><br><small>${esc(r.d)} · ${r.e.length} ejercicios</small></span><span style="color:var(--mut)">${o?'⌃':'⌄'}</span></button>${o?`<button class="tx" data-a="er" data-i="${r.id}">Editar</button>`:''}</div>${o?r.e.map(e=>`<button class="row" data-a="ee" data-i="${r.id}" data-j="${e.id}"><span>${esc(e.n)}</span><b>${esc(e.s)}</b></button>`).join('')+`<button class="tx" data-a="ae" data-i="${r.id}">+ Agregar ejercicio</button>`:''}</div>`}).join('')||'<p><small>Todavía no tenés rutinas. Creá la primera.</small></p>')+'<button class="cta" data-a="ar">+ Nueva rutina</button>'}
-function subs(){const P=S.pag[ym]||[],fa=S.subs.filter(s=>!P.includes(s.id)).reduce((a,s)=>a+s.p,0);
- return hd('Este mes','Suscripciones')+mn()+`<div style="display:flex;justify-content:space-between;align-items:flex-end;padding:8px 0 16px"><div><div class="lb">Pagadas</div><div class="sf" style="font-size:44px;line-height:1">${S.subs.filter(s=>P.includes(s.id)).length} de ${S.subs.length}</div></div><div style="text-align:right"><div class="lb">Falta pagar</div><b style="font-size:20px;color:var(--ac)">${money(fa)}</b></div></div>`+
- (S.subs.map(s=>{const ok=P.includes(s.id);return `<div class="row" style="cursor:default"><button style="all:unset;flex:1;min-height:44px;cursor:pointer;font:inherit" data-a="es" data-i="${s.id}">${esc(s.n)}<br><small>Vence el ${s.d} · ${money(s.p)}</small></button><button class="chip${ok?' ok':''}" data-a="tp" data-i="${s.id}">${ok?'Pagada ✓':'Marcar pagada'}</button></div>`}).join('')||'<p><small>Todavía no cargaste suscripciones.</small></p>')+'<button class="cta" data-a="as">+ Agregar suscripción</button>'}
-function render(){$('#main').innerHTML={g:gastos,r:gym,s:subs}[view]();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==view))}
-const cl=()=>$('#sh').innerHTML='';
-function sheet(title,F,ok,del){
- $('#sh').innerHTML=`<div class="bd" data-a="cl"></div><form class="sheet"><h3 class="sf">${title}</h3>${F.map(f=>`<label>${f.l}<input name="${f.k}" type="${f.t||'text'}" value="${esc(f.v)}" ${f.t=='number'?'inputmode="decimal" step="any"':''} required></label>`).join('')}<div class="bt"><button class="pri">Guardar</button>${del?'<button type="button" class="del" data-a="del">Eliminar</button>':''}<button type="button" data-a="cl">Cancelar</button></div></form>`;
- const fm=$('#sh form');fm.onsubmit=e=>{e.preventDefault();ok(Object.fromEntries(new FormData(fm)));cl();save();render()};
- if(del)fm.querySelector('[data-a=del]').onclick=()=>{del();cl();save();render()};fm.querySelector('input').focus()}
-document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,i=b.dataset.i,j=b.dataset.j;
+const SP=(()=>{let d='';for(let t=.3;t<=13;t+=.2){const r=(1.6*t+1)*1.55;d+=(d?'L':'M')+(46.1+r*Math.cos(t)).toFixed(1)+' '+(53.9+r*Math.sin(t)).toFixed(1)}return d})();
+const logo=s=>`<svg width="${s}" height="${s}" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${SP}"/></svg>`;
+const ico=p=>`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const NAV=[['','Inicio','<path d="M3 11l9-8 9 8M5 10v10h14V10"/>'],['expenses','Gastos','<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/>'],['workouts','Gimnasio','<path d="M6 7v10M18 7v10M3 10v4M21 10v4M6 12h12"/>'],['subscriptions','Suscripciones','<path d="M4 12a8 8 0 0 1 14-5l2 2M20 4v5h-5M20 12a8 8 0 0 1-14 5l-2-2M4 20v-5h5"/>'],['settings','Ajustes','<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>']];
+/* ---- datos ---- */
+const cp=()=>{const t=today(),s=[...S.periods].sort((a,b)=>b.start.localeCompare(a.start));return s.find(p=>p.start<=t&&t<=p.end)||s[0]||null},
+fixSel=()=>{if(!S.periods.some(p=>p.id==S.sel))S.sel=cp()?.id??null},
+sp=w=>w.exps.reduce((a,e)=>a+e.amount,0),av=w=>w.budget-sp(w),
+nextN=p=>p.weeks.length?Math.max(...p.weeks.map(w=>w.n))+1:1,
+curW=p=>{if(!p||!p.weeks.length)return null;const n=Math.min(5,Math.floor((pd(today())-pd(p.start))/864e5/7)+1);return p.weeks.find(w=>w.n==n)||[...p.weeks].reverse().find(w=>w.n<n)||p.weeks[0]},
+paid=s=>s.paid===today().slice(0,7),subTot=()=>S.subs.filter(s=>s.active&&s.incl).reduce((a,s)=>a+s.amount,0),
+wk=(pi,n)=>S.periods.find(p=>p.id==pi)?.weeks.find(w=>w.n==n);
+/* ---- piezas ---- */
+const hd=(lb,t,r='')=>`<div class="ph"><div><div class="lb">${lb}</div><h1 class="sf">${t}</h1></div><div>${r}</div></div>`,
+plus=(a,l,x='',dis)=>`<button class="plus" data-a="${a}" ${x} aria-label="${l}" ${dis?'disabled':''}>+</button>`,
+sec=(lb,t,acts,body)=>`<section class="sec"><div class="sh"><div><div class="lb">${lb}</div><h2 class="sf">${t}</h2></div><div class="acts">${acts}</div></div>${body}</section>`,
+more=(a,o)=>`<button class="tx" data-a="${a}">${o?'Ocultar':'Mostrar'}</button>`,
+empty=t=>`<p class="mut">${t}</p>`;
+let ex1=false,ex2=false,cashEd=false;
+/* ---- inicio ---- */
+function expRows(p,w){return w.exps.map(e=>`<button class="row" data-a="ee" data-p="${p.id}" data-w="${w.n}" data-i="${e.id}"><span>${esc(e.desc)}</span><b>${money(e.amount)}</b></button>`).join('')||empty('Todavía no registraste gastos.')}
+function expCard(){const p=cp(),w=curW(p);
+ const b=w?`<div class="lb">Disponible</div><div class="sf big" style="color:${av(w)<0?'#B3261E':'var(--ink)'}">${money(av(w))}</div><small>Presupuesto: ${money(w.budget)}</small>`+(ex1?`<div class="sub">Esta semana · ${w.exps.length} ${w.exps.length==1?'gasto':'gastos'}</div>${expRows(p,w)}`:''):empty('Todavía no configuraste el mes actual.')+'<a class="btn" href="#/expenses">Configurar mes</a>';
+ return sec('Gastos',w?'Semana '+w.n:'Sin semana activa',(w?plus('ae','Agregar gasto',`data-p="${p.id}" data-w="${w.n}"`)+more('x1',ex1):'')+'<a class="tx" href="#/expenses" aria-label="Ver todos los gastos">›</a>',b)}
+function subCard(){const a=S.subs.filter(s=>s.active),n=a.filter(s=>s.incl).map(s=>esc(s.name)).join(' · ')||'Ninguna incluida';
+ const b=`<div class="lb">Total mensual</div><div class="sf big">${money(subTot())}</div><small>${n}</small>`+(ex2?`<div class="sub">Este mes · ${a.length} ${a.length==1?'suscripción':'suscripciones'}</div>`+(a.map(s=>`<label class="row2" style="color:var(--ink);font-size:16px"><input type="checkbox" data-a="tp" data-i="${s.id}" ${paid(s)?'checked':''}><span class="gr"><b>${esc(s.name)}</b><small>Cobra el día ${s.day}</small></span><b>${money(s.amount)}</b></label>`).join('')||empty('Sin suscripciones activas.')):'');
+ return sec('Suscripciones',S.subs.length+(S.subs.length==1?' registrada':' registradas'),plus('sn','Agregar suscripción')+more('x2',ex2)+'<a class="tx" href="#/subscriptions" aria-label="Administrar suscripciones">›</a>',b)}
+const rChips=()=>S.routines.length?`<div class="chips">${S.routines.map(r=>`<a href="#/workouts/${r.id}">${esc(r.name)} ›</a>`).join('')}</div>`:empty('Todavía no tenés rutinas registradas.')+'<button class="btn" data-a="rn">Crear rutina</button>';
+const home=()=>hd('Tu resumen',logo(34)+' Mia')+expCard()+subCard()+sec('Gimnasio','Tus rutinas',plus('rn','Agregar rutina')+'<a class="tx" href="#/workouts" aria-label="Ver rutinas">›</a>',rChips());
+/* ---- gastos ---- */
+function expenses(){const p=S.periods.find(x=>x.id==S.sel),per=[...S.periods].sort((a,b)=>b.start.localeCompare(a.start));
+ const sel=`<select class="sel" data-a="sp" aria-label="Período">${per.map(x=>`<option value="${x.id}" ${x.id==S.sel?'selected':''}>${fd(x.start)} – ${fd(x.end)}</option>`).join('')||'<option>Sin períodos</option>'}</select>`;
+ let h=hd('Resumen del período seleccionado','Gastos',sel);
+ const w=curW(p),nn=p?nextN(p):1;
+ h+=`<section class="sec"><div class="sh"><div><div class="lb">Período</div><h2 class="sf" style="font-size:20px">${p?fd(p.start)+' – '+fd(p.end):'Sin período'}</h2></div>${plus('ap','Agregar período')}</div>`+(p?(w?`<small>Semana actual: <b>${w.n}</b> · Presupuesto ${money(w.budget)}</small>`:empty('Este período todavía no tiene semanas.'))+'<div style="margin-top:8px">'+(nn<=5?`<button class="btn" data-a="aw">Semana ${nn}</button>`:'<span class="chip">Completo</span>')+'</div>':empty('Todavía no creaste ningún período.')+'<button class="btn" data-a="ap">Crear período</button>')+'</section>';
+ if(!p)return h;
+ const t=p.weeks.reduce((a,x)=>a+sp(x),0),ta=p.weeks.reduce((a,x)=>a+av(x),0);
+ h+=`<section class="sec"><div class="lb">Resumen del período · ${p.weeks.length} ${p.weeks.length==1?'semana registrada':'semanas registradas'}</div><div class="g2" style="margin-top:6px"><div><small>Gastado</small><div class="sf" style="font-size:30px">${money(t)}</div></div><div><small>Disponible</small><div class="sf" style="font-size:30px;color:${ta<0?'#B3261E':'var(--ac)'}">${money(ta)}</div></div></div></section>`;
+ return h+(p.weeks.map(x=>`<section class="sec"><div class="sh"><div><h2 class="sf">Semana ${x.n}</h2><small>Presupuesto: ${money(x.budget)}</small></div><div class="acts"><span class="chip ${av(x)<0?'bad':''}">${money(av(x))}</span>${plus('ae','Agregar gasto',`data-p="${p.id}" data-w="${x.n}"`)}</div></div>${expRows(p,x)}</section>`).join('')||empty('No hay semanas registradas para este período.'));
+}
+/* ---- suscripciones ---- */
+function subsV(){const a=S.subs.filter(s=>s.active).length,i=S.subs.filter(s=>s.active&&s.incl).length;
+ return hd('Administrá tus pagos mensuales','Suscripciones',plus('sn','Agregar suscripción'))+`<section class="sec"><div class="lb">Total mensual</div><div class="sf big">${money(subTot())}</div><div class="g2"><small>Activas: <b>${a}</b></small><small>Incluidas en el total: <b>${i}</b></small></div></section><section class="sec"><div class="sh"><h2 class="sf">Todas</h2><small>Tocá una para editar</small></div>`+(S.subs.map(s=>`<div class="row2"><button class="dot" data-a="sa" data-i="${s.id}" aria-pressed="${s.active}" aria-label="${s.active?'Desactivar':'Activar'} suscripción"><i class="st ${s.active?'on':''}"></i></button><button class="gr" data-a="se" data-i="${s.id}" ${s.active?'':'disabled'}><b>${esc(s.name)}</b><small>Día ${s.day} · ${money(s.amount)}</small>${s.notes?`<small>${esc(s.notes)}</small>`:''}</button><input type="checkbox" data-a="si" data-i="${s.id}" ${s.incl?'checked':''} ${s.active?'':'disabled'} title="Incluir en el total" aria-label="Incluir en el total"><button class="tx" data-a="sd" data-i="${s.id}" aria-label="Eliminar suscripción" style="color:#B3261E">✕</button></div>`).join('')||empty('Todavía no tenés suscripciones.'))+'</section>';
+}
+/* ---- gimnasio ---- */
+const wlist=()=>hd('Tus rutinas','Gimnasio',plus('rn','Agregar rutina'))+'<section class="sec">'+(S.routines.map(r=>`<a class="row" href="#/workouts/${r.id}"><span><b>${esc(r.name)}</b><small>${r.ex.length} ${r.ex.length==1?'ejercicio':'ejercicios'}</small></span><span class="mut">›</span></a>`).join('')||empty('Todavía no tenés rutinas registradas.')+'<button class="btn" data-a="rn">Crear rutina</button>')+'</section>';
+function wdet(id){const r=S.routines.find(x=>x.id==id);if(!r){location.hash='#/workouts';return ''}
+ return `<a class="tx" href="#/workouts" style="margin-left:-8px">‹ Rutinas</a>`+hd('Rutina',esc(r.name),`<button class="tx" data-a="re" data-i="${r.id}">Editar</button>`)+`<section class="sec"><div class="sh"><div><div class="lb">Entrenamiento</div><b>${r.ex.length} ${r.ex.length==1?'ejercicio':'ejercicios'}</b></div>${plus('xn','Agregar ejercicio',`data-i="${r.id}"`)}</div><div id="exl">`+(r.ex.map((e,i)=>`<article class="ex" data-i="${e.id}"><button class="hdl" data-h="${r.id}" aria-label="Mover ejercicio">⋮⋮</button><button class="exb" data-a="xe" data-i="${r.id}" data-j="${e.id}"><span class="num">${i+1}</span><span><b>${esc(e.name)}</b><small style="display:block">${[e.sets!=null?e.sets+' series':'',e.reps?esc(e.reps)+' reps':'',e.weight!=null?e.weight+' kg':''].filter(Boolean).join(' · ')}</small>${e.notes?`<small style="display:block">${esc(e.notes)}</small>`:''}</span></button></article>`).join('')||empty('Esta rutina todavía no tiene ejercicios.'))+'</div></section>'}
+/* ---- ajustes ---- */
+let U={checking:false,avail:false,msg:'',err:'',reg:null};
+const swOK='serviceWorker' in navigator&&(location.protocol=='https:'||location.hostname=='localhost');
+function settings(){return hd('Mia v'+VERSION,'Ajustes')+
+ `<section class="sec"><div class="lb">Color</div><div class="sw">${TH.map(t=>`<button data-a="th" data-t="${t}" class="${S.theme==t?'on':''}" style="background:${THC[t]}" aria-label="Color ${t}"></button>`).join('')}</div></section>`+
+ `<section class="sec"><div class="sh"><div><div class="lb">Actualizaciones</div><small>Buscá una versión nueva sin volver a instalar la PWA.</small></div>${U.avail?'<span class="chip">Disponible</span>':''}</div>${swOK?'':'<div class="msg">La búsqueda de actualizaciones solo funciona en la versión desplegada de la PWA.</div>'}${U.msg?`<div class="msg">${U.msg}</div>`:''}${U.err?`<p class="er">${U.err}</p>`:''}<div class="acts" style="gap:8px"><button class="btn o" data-a="chk" ${!swOK||U.checking?'disabled':''}>${U.checking?'Buscando...':'Buscar actualización'}</button>${U.avail?'<button class="btn" data-a="inst">Actualizar ahora</button>':''}</div></section>`+
+ `<section class="sec"><div class="sh"><div><div class="lb">Caja</div>${cashEd?`<div class="sf" style="font-size:34px">$ <input data-a="ci" type="number" inputmode="decimal" min="0" step="1" value="${S.cash||''}" style="width:170px;font:inherit;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;padding:0;min-height:44px" autofocus></div>`:`<button class="tx" data-a="ce" style="padding:0;font-size:34px;color:var(--ink)"><span class="sf">${money(S.cash)}</span></button>`}</div><div style="text-align:right"><small>Aproximadamente</small><div><b>US$ ${(S.cash/UYU_USD).toFixed(2)}</b></div></div></div></section>`+
+ `<section class="sec"><div class="lb">Respaldo</div><small>Tus datos viven solo en este dispositivo. Guardá una copia de vez en cuando.</small><div class="acts" style="gap:8px;margin-top:8px"><button class="btn o" data-a="exp">Exportar</button><label class="btn o" style="cursor:pointer;color:var(--ink);font-size:16px">Importar<input type="file" accept="application/json" data-a="imp" hidden></label></div></section>`}
+/* ---- router ---- */
+let last='';
+function render(){fixSel();const r=location.hash.slice(2).split('/'),k=r[0];
+ const v=k==''?home():k=='expenses'?expenses():k=='subscriptions'?subsV():k=='workouts'?(r[1]?wdet(r[1]):wlist()):k=='settings'?settings():(location.hash='#/',home());
+ $('#main').innerHTML=v;$('#nav').innerHTML=NAV.map(n=>`<a href="#/${n[0]}" class="${n[0]==k?'on':''}" ${n[0]==k?'aria-current="page"':''}>${ico(n[2])}${n[1]}</a>`).join('');
+ if(location.hash!=last){last=location.hash;scrollTo(0,0)}}
+/* ---- formularios ---- */
+const fld=f=>`<label>${f.l}${f.a?`<textarea name="${f.k}" rows="3" maxlength="300" placeholder="Opcional">${esc(f.v)}</textarea>`:`<input name="${f.k}" type="${f.t||'text'}" value="${esc(f.v)}" placeholder="${esc(f.ph)}" ${f.max?`maxlength="${f.max}"`:''} ${f.min!=null?`min="${f.min}"`:''} ${f.max2!=null?`max="${f.max2}"`:''} ${f.t=='number'?`inputmode="decimal" step="${f.step||1}"`:''} ${f.opt?'':'required'}>`}</label>`,
+cl=()=>$('#sh').innerHTML='';
+function sheet(o){
+ $('#sh').innerHTML=`<div class="bd" data-a="cl"></div><form class="sheet"><h3 class="sf">${o.t}</h3>${o.s?`<small>${o.s}</small>`:''}${o.f.map(f=>f.g?`<div class="g2">${f.g.map(fld).join('')}</div>`:fld(f)).join('')}<p class="er" id="er"></p><div class="bt" id="bt"><button class="pri">Guardar</button>${o.del?'<button type="button" class="del" id="dq">Eliminar</button>':''}<button type="button" data-a="cl">Cancelar</button></div></form>`;
+ const fm=$('#sh form');
+ fm.onsubmit=e=>{e.preventDefault();const r=o.ok(Object.fromEntries(new FormData(fm)));if(r){$('#er').textContent=r;return}cl();save();render()};
+ if(o.del)$('#dq').onclick=()=>{$('#bt').innerHTML=`<div style="width:100%"><b>${o.dm}</b><br><small>Esta acción no se puede deshacer.</small></div><button type="button" class="del" id="dy">Sí, borrar</button><button type="button" data-a="cl">No</button>`;$('#dy').onclick=()=>{o.del();cl();save();render()}};
+ const i=fm.querySelector('input,textarea');i&&i.focus()}
+const num=v=>v===''||v==null?null:+v,txt=v=>(v||'').trim()||null;
+function expForm(pi,wn,e){const w=wk(pi,wn);sheet({t:e?'Editar gasto':'Nuevo gasto',s:e?'Modificá los datos del gasto.':'Semana '+wn,f:[{k:'amount',l:'Monto ($)',t:'number',v:e?.amount,ph:'0',min:1},{k:'desc',l:'Descripción',v:e?.desc,ph:'Ej. Supermercado',max:150}],
+ ok:o=>{const a=Math.round(+o.amount),d=o.desc.trim();if(!(a>0)||!d)return 'Completá monto y descripción.';e?Object.assign(e,{amount:a,desc:d}):w.exps.push({id:nid(),amount:a,desc:d,at:new Date().toISOString()})},
+ del:e&&(()=>w.exps=w.exps.filter(x=>x!=e)),dm:'¿Seguro que querés borrar este gasto?'})}
+function subForm(s){sheet({t:s?'Editar suscripción':'Nueva suscripción',s:'Pagos mensuales',f:[{k:'name',l:'Nombre',v:s?.name,ph:'Ej. Spotify',max:100},{g:[{k:'amount',l:'Monto ($)',t:'number',v:s?.amount,min:1},{k:'day',l:'Día de cobro',t:'number',v:s?.day,min:1,max2:31}]},{k:'notes',l:'Notas',a:1,v:s?.notes}],
+ ok:o=>{const n=o.name.trim();if(S.subs.some(x=>x!=s&&x.name.toLowerCase()==n.toLowerCase()))return 'Ya existe una suscripción con ese nombre.';const d={name:n,amount:Math.round(+o.amount),day:Math.min(31,Math.max(1,Math.round(+o.day))),notes:txt(o.notes)};s?Object.assign(s,d):S.subs.push({id:nid(),active:true,incl:true,paid:null,...d})}})}
+function exForm(r,e){sheet({t:e?'Editar ejercicio':'Nuevo ejercicio',s:r.name,f:[{k:'name',l:'Nombre',v:e?.name,ph:'Ej. Sentadilla',max:120},{g:[{k:'sets',l:'Series',t:'number',v:e?.sets,ph:'4',min:1,opt:1},{k:'weight',l:'Peso (kg)',t:'number',v:e?.weight,ph:'40',min:0,step:.5,opt:1}]},{k:'reps',l:'Repeticiones',v:e?.reps,ph:'Ej. 8-10',max:30,opt:1},{k:'notes',l:'Notas',a:1,v:e?.notes}],
+ ok:o=>{const d={name:o.name.trim(),sets:num(o.sets),weight:num(o.weight),reps:txt(o.reps),notes:txt(o.notes)};e?Object.assign(e,d):r.ex.push({id:nid(),...d})},
+ del:e&&(()=>r.ex=r.ex.filter(x=>x!=e)),dm:'¿Seguro que querés borrar este ejercicio?'})}
+function routForm(r){sheet({t:r?'Editar rutina':'Nueva rutina',f:[{k:'name',l:'Nombre',v:r?.name,ph:'Ej. Piernas',max:100}],
+ ok:o=>{const n=o.name.trim();if(S.routines.some(x=>x!=r&&x.name.toLowerCase()==n.toLowerCase()))return 'Ya existe una rutina con ese nombre.';r?r.name=n:S.routines.push({id:nid(),name:n,ex:[]})},
+ del:r&&(()=>{S.routines=S.routines.filter(x=>x!=r);location.hash='#/workouts'}),dm:'¿Seguro que querés borrar esta rutina? También se eliminarán todos sus ejercicios.'})}
+function perForm(){const l=[...S.periods].sort((a,b)=>b.end.localeCompare(a.end))[0],s=l?addD(l.end,1):today();sheet({t:'Crear período',s:'Elegí la fecha de inicio y finalización.',f:[{k:'start',l:'Fecha de inicio',t:'date',v:s},{k:'end',l:'Fecha de finalización',t:'date',v:addM(s)}],
+ ok:o=>{if(o.end<=o.start)return 'La fecha de fin debe ser posterior al inicio.';if(S.periods.some(p=>p.start==o.start&&p.end==o.end))return 'Ese período ya existe.';const p={id:nid(),start:o.start,end:o.end,weeks:[]};S.periods.push(p);S.sel=p.id}})}
+function weekForm(){const p=S.periods.find(x=>x.id==S.sel),n=nextN(p);if(n>5)return;sheet({t:'Crear semana '+n,s:'Indicá el presupuesto de esta semana.',f:[{k:'b',l:'Presupuesto ($)',t:'number',v:p.weeks.at(-1)?.budget,min:1}],ok:o=>{p.weeks.push({n,budget:Math.round(+o.b),exps:[]})}})}
+/* ---- eventos ---- */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.tagName=='INPUT'||b.tagName=='SELECT')return;const a=b.dataset.a,d=b.dataset,rt=()=>S.routines.find(x=>x.id==d.i);
  if(a=='cl')return cl();
- if(a=='v'){view=b.dataset.v;return render()}
- if(a=='pm'||a=='nm'){let[y,m]=ym.split('-').map(Number);m+=a=='nm'?1:-1;if(m<1){m=12;y--}if(m>12){m=1;y++}ym=y+'-'+String(m).padStart(2,'0');return render()}
- if(a=='w'){wk=+i;return render()}
- if(a=='th'){S.theme=TH[(TH.indexOf(S.theme)+1)%TH.length];document.documentElement.dataset.theme=S.theme;return save()}
- if(a=='tr'){open=open==i?null:i;return render()}
- if(a=='tp'){const P=S.pag[ym]=S.pag[ym]||[],k=P.indexOf(i);k<0?P.push(i):P.splice(k,1);save();return render()}
- if(a=='eb')return sheet('Monto de la semana '+wk,[{l:'Monto disponible',k:'m',t:'number',v:S.sem[ym+'-'+wk]}],o=>S.sem[ym+'-'+wk]=+o.m);
- if(a=='ag'||a=='eg'){const g=a=='eg'?S.gastos.find(x=>x.id==i):null;return sheet(g?'Editar gasto':'Nuevo gasto',[{l:'Fecha',k:'f',t:'date',v:g?g.f:today()},{l:'Detalle',k:'d',v:g?.d},{l:'Monto',k:'m',t:'number',v:g?.m}],o=>{const n={id:g?g.id:uid(),f:o.f,d:o.d,m:+o.m};g?Object.assign(g,n):S.gastos.push(n);ym=o.f.slice(0,7);wk=weekOf(o.f)},g&&(()=>S.gastos=S.gastos.filter(x=>x!=g)))}
- if(a=='ar'||a=='er'){const r=a=='er'?S.rut.find(x=>x.id==i):null;return sheet(r?'Editar rutina':'Nueva rutina',[{l:'Nombre',k:'n',v:r?.n},{l:'Día',k:'d',v:r?.d}],o=>{if(r)Object.assign(r,o);else{const n={id:uid(),n:o.n,d:o.d,e:[]};S.rut.push(n);open=n.id}},r&&(()=>S.rut=S.rut.filter(x=>x!=r)))}
- if(a=='ae'||a=='ee'){const r=S.rut.find(x=>x.id==i),e=a=='ee'?r.e.find(x=>x.id==j):null;return sheet(e?'Editar ejercicio':'Nuevo ejercicio',[{l:'Ejercicio',k:'n',v:e?.n},{l:'Series × repeticiones',k:'s',v:e?.s}],o=>e?Object.assign(e,o):r.e.push({id:uid(),...o}),e&&(()=>r.e=r.e.filter(x=>x!=e)))}
- if(a=='as'||a=='es'){const s=a=='es'?S.subs.find(x=>x.id==i):null;return sheet(s?'Editar suscripción':'Nueva suscripción',[{l:'Nombre',k:'n',v:s?.n},{l:'Día de vencimiento',k:'d',t:'number',v:s?.d},{l:'Precio mensual',k:'p',t:'number',v:s?.p}],o=>{const n={id:s?s.id:uid(),n:o.n,d:+o.d,p:+o.p};s?Object.assign(s,n):S.subs.push(n)},s&&(()=>S.subs=S.subs.filter(x=>x!=s)))}
+ if(a=='x1'){ex1=!ex1;return render()}if(a=='x2'){ex2=!ex2;return render()}
+ if(a=='th'){S.theme=d.t;document.documentElement.dataset.theme=d.t;save();return render()}
+ if(a=='ap')return perForm();if(a=='aw')return weekForm();
+ if(a=='ae')return expForm(d.p,d.w);
+ if(a=='ee')return expForm(d.p,d.w,wk(d.p,d.w).exps.find(x=>x.id==d.i));
+ if(a=='sn')return subForm();
+ if(a=='se')return subForm(S.subs.find(x=>x.id==d.i));
+ if(a=='sa'){const s=S.subs.find(x=>x.id==d.i);s.active=!s.active;save();return render()}
+ if(a=='sd'){if(confirm('¿Eliminar esta suscripción?')){S.subs=S.subs.filter(x=>x.id!=d.i);save();render()}return}
+ if(a=='rn')return routForm();if(a=='re')return routForm(rt());
+ if(a=='xn')return exForm(rt());if(a=='xe'){const r=rt();return exForm(r,r.ex.find(x=>x.id==d.j))}
+ if(a=='ce'){cashEd=true;render();const i=$('[data-a=ci]');i&&i.focus();return}
+ if(a=='chk')return chk();if(a=='inst')return inst();
+ if(a=='exp'){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));l.download='mia-respaldo-'+today()+'.json';l.click()}
 });
-render();if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
+document.addEventListener('change',e=>{const t=e.target,a=t.dataset.a;if(!a)return;
+ if(a=='sp'){S.sel=+t.value;save();return render()}
+ if(a=='tp'){const s=S.subs.find(x=>x.id==t.dataset.i);s.paid=t.checked?today().slice(0,7):null;save();return render()}
+ if(a=='si'){const s=S.subs.find(x=>x.id==t.dataset.i);s.incl=t.checked;save();return render()}
+ if(a=='imp'&&t.files[0]){const f=new FileReader();f.onload=()=>{try{const j=JSON.parse(f.result);if(!Array.isArray(j.periods)||!Array.isArray(j.subs)||!Array.isArray(j.routines))throw 0;if(!confirm('Esto reemplaza los datos actuales de este dispositivo. ¿Continuar?'))return;S=Object.assign(S,j);document.documentElement.dataset.theme=S.theme;save();render()}catch(x){alert('El archivo no es un respaldo válido de Mia.')}};f.readAsText(t.files[0])}});
+document.addEventListener('input',e=>{if(e.target.dataset.a=='ci')S.cash=Math.max(0,+e.target.value||0)});
+document.addEventListener('focusout',e=>{if(e.target.dataset?.a=='ci'){cashEd=false;save();render()}});
+document.addEventListener('keydown',e=>{if(e.key=='Escape')cl();if(e.key=='Enter'&&e.target.dataset?.a=='ci')e.target.blur()});
+let dr=null;
+document.addEventListener('pointerdown',e=>{const h=e.target.closest('[data-h]');if(!h)return;e.preventDefault();const it=h.closest('.ex');dr={it,list:it.parentElement,rid:h.dataset.h};it.classList.add('drag');h.setPointerCapture(e.pointerId)});
+document.addEventListener('pointermove',e=>{if(!dr)return;const t=[...dr.list.children].filter(c=>c!=dr.it).find(c=>{const r=c.getBoundingClientRect();return e.clientY<r.top+r.height/2});t?dr.list.insertBefore(dr.it,t):dr.list.appendChild(dr.it)});
+const dend=()=>{if(!dr)return;const r=S.routines.find(x=>x.id==dr.rid),ids=[...dr.list.children].map(c=>+c.dataset.i);r.ex.sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id));dr=null;save();render()};
+document.addEventListener('pointerup',dend);document.addEventListener('pointercancel',dend);
+addEventListener('hashchange',render);
+/* ---- PWA: registro y actualizaciones ---- */
+if(swOK)navigator.serviceWorker.register('sw.js').then(r=>{U.reg=r;if(r.waiting&&navigator.serviceWorker.controller){U.avail=true;U.msg='Hay una nueva versión de Mia lista para instalar.'}
+ r.addEventListener('updatefound',()=>{const n=r.installing;n&&n.addEventListener('statechange',()=>{if(n.state=='installed'&&navigator.serviceWorker.controller){U.avail=true;U.msg='Hay una nueva versión de Mia lista para instalar.'}else if(n.state=='redundant'){U.err='No se pudo descargar la nueva versión.'}if(location.hash=='#/settings')render()})})});
+async function chk(){if(!U.reg||U.checking)return;U.checking=true;U.err=U.msg='';render();try{await U.reg.update();await new Promise(r=>setTimeout(r,2000));if(U.reg.waiting){U.avail=true;U.msg='Hay una nueva versión de Mia lista para instalar.'}else if(!U.avail)U.msg='Mia ya está actualizada.'}catch(e){U.err='No se pudo buscar una actualización.'}U.checking=false;render()}
+function inst(){const w=U.reg&&U.reg.waiting;if(!w)return location.reload();navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload(),{once:true});w.postMessage('SKIP_WAITING')}
+render();
 </script></body></html>
