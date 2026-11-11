@@ -1,5 +1,5 @@
 // Para publicar una actualización: cambiá VERSION (y la de index.html) y volvé a desplegar.
-const VERSION='5.0.0',C='mia-'+VERSION,F='fonts-v1',A=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','favicon-32.png'];
+const VERSION='6.0.0',C='mia-'+VERSION,F='fonts-v1',A=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','favicon-32.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(A))));
 self.addEventListener('message',e=>{if(e.data==='SKIP_WAITING')self.skipWaiting()});
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C&&x!==F).map(x=>caches.delete(x)))).then(()=>self.clients.claim())));
